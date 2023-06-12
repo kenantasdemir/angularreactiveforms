@@ -1,0 +1,43 @@
+
+
+
+<div class="field">
+  <label class="label">{{label}}</label>
+  <div class="control">
+    <input class="form-control" type="text" [formControl]="control"
+    [ngClass]="{'border-danger':showErrors()}">
+  </div>
+</div>
+
+
+
+<ng-container *ngIf="showErrors()">
+  <div class="text-danger" *ngIf="control.errors?.['required']">
+    *Zorunlu Alan
+  </div>
+  <div class="text-danger" *ngIf="control.errors?.['minlength']">
+    Girdiğiniz isim
+    {{control.errors?.['minlength']?.['actualLength']}}
+    karakter içermektedir, fakat minumum
+    {{control.errors?.['minlength']?.['requiredLength']}}
+    karakter olmalıdır
+  </div>
+  <div class="text-danger" *ngIf="control.errors?.['maxlength']">
+    Girdiğiniz isim
+    {{control.errors?.['maxlength']?.['actualLength']}}
+    karakter içermektedir, fakat maximum
+    {{control.errors?.['maxlength']?.['requiredLength']}}
+    karakter olmalıdır
+  </div>
+</ng-container>
+
+
+
+<!-- 
+<ng-container *ngIf="cardForm.get('name')?.dirty &&
+cardForm.get('name')?.touched &&
+cardForm.get('name')?.errors">
+<div class="text-danger" *ngIf="cardForm.get('name')?.errors?.['required']">
+Bu alan zorunludur
+</div>
+</ng-container> -->
