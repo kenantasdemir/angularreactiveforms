@@ -36,7 +36,7 @@ export class CardformComponent implements OnInit {
   }
   onSubmit()
   {
-    console.log("Can");
+    console.log("Kenan");
   }
 
   resetForm()
